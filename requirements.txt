@@ -1,5 +1,66 @@
-aiogram==2.11.2
-emoji==1.1.0
-redis==3.5.3
-ujson==4.0.1
-uvloop==0.14.0
+# Основные библиотеки для Telegram-бота
+python-telegram-bot==20.7
+nest_asyncio
+
+# Работа с переменными окружения
+python-dotenv
+
+# Асинхронность
+aiohttp
+aiofiles
+asyncio
+
+# Работа с API и HTTP
+requests
+httpx
+
+# Базы данных
+aiosqlite
+sqlalchemy
+pymongo
+redis
+
+# Парсинг и HTML
+beautifulsoup4
+lxml
+
+# Работа с JSON, XML, YAML
+ujson
+PyYAML
+xmltodict
+
+# Обработка текста и данных
+pandas
+numpy
+textblob
+nltk
+langdetect
+emoji
+
+# Машинное обучение и AI
+scikit-learn
+transformers
+
+# Безопасность
+pycryptodome
+bcrypt
+passlib
+
+# Логгирование и отладка
+loguru
+sentry-sdk
+
+# Работа с датой и временем
+pytz
+python-dateutil
+
+# Интерактивные CLI и utils
+typer
+click
+rich
+tqdm
+colorama
+
+# Работа с файлами и путями
+pathlib
+watchdog
