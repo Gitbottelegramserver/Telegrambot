@@ -3,7 +3,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters
 
 # Настройки Telegram API
-TELEGRAM_TOKEN = "7789632372:AAHI8MYJ4rtzKMwiKCanC_LatT4W_XGf7Uo"
+TELEGRAM_TOKEN = ""
 
 # Словарь с описанием направлений
 CRYPTO_MODULES_FREE = {
