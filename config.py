@@ -4,7 +4,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-TOKEN = "Строка токена"
+TOKEN = "TELEGRAM_TOKEN = 7789632372AAHI8MYJ4rtzKMwiKCanC_LatT4W_XGf7UoС"
 BOT_VERSION = 0.1
 # База данных хранит выбранные юзером лиги
 BOT_DB_NAME = "users_leagues"
