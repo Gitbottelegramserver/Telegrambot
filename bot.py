@@ -40,6 +40,7 @@ async def handle_courses(message: Message):
 )
 
 
+
 @dp.message(F.text == "🛠 Поддержка")
 async def handle_support(message: Message):
     await message.answer("По всем вопросам обращайтесь: @support_username")
