@@ -7,7 +7,8 @@ import asyncio
 import config
 import logging
 
-bot = Bot(token=config.API_TOKEN)
+bot = Bot(token="7859836994:AAFmTHXIohdMVoeV-ohqwmtGr3_iqZgQWyU")
+
 dp = Dispatcher(storage=MemoryStorage())
 
 # Главное меню
