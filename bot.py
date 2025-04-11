@@ -30,6 +30,7 @@ async def cmd_start(message: Message):
 async def handle_courses(message: Message):
     await message.answer("Вот список доступных модулей: 1. Введение, 2. DeFi, 3. NFT, 4. Торговля, 5. Аналитика")
 
+
 # Поддержка
 @dp.message(F.text == "🛠 Поддержка")
 async def handle_support(message: Message):
