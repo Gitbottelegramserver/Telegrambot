@@ -30,12 +30,15 @@ async def cmd_start(message: Message):
 # Обработка нажатий на кнопки
 @dp.message(F.text == "📚 Курсы")
 async def handle_courses(message: Message):
-    await message.answer("Вот список доступных модулей:
-1. Введение
-2. DeFi
-3. NFT
-4. Торговля
-5. Аналитика")
+    await message.answer(
+    "Вот список доступных модулей:\n"
+    "1. Введение\n"
+    "2. DeFi\n"
+    "3. NFT\n"
+    "4. Торговля\n"
+    "5. Аналитика"
+)
+
 
 @dp.message(F.text == "🛠 Поддержка")
 async def handle_support(message: Message):
