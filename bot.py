@@ -1,10 +1,8 @@
 from aiogram import Bot, Dispatcher, types, F
-from aiogram.types import Message, LabeledPrice, PreCheckoutQuery, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import Message, LabeledPrice, PreCheckoutQuery
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from aiogram.fsm.storage.memory import MemoryStorage
-from aiogram.utils.callback_answer import CallbackAnswerMiddleware
 from aiogram.utils.markdown import hbold
-from aiogram import Router
 import asyncio
 import config
 import logging
@@ -27,49 +25,40 @@ def main_menu():
 async def cmd_start(message: Message):
     await message.answer("Добро пожаловать в ALGO HUB!", reply_markup=main_menu())
 
-# Обработка нажатий на кнопки
+# Курсы
 @dp.message(F.text == "📚 Курсы")
 async def handle_courses(message: Message):
-    await message.answer("""Вот список доступных модулей:
-1. Введение
-2. DeFi
-3. NFT
-4. Торговля
-5. Аналитика""")
+    await message.answer(
+        "Вот список доступных модулей:\n"
+        "1. Введение\n"
+        "2. DeFi\n"
+        "3. NFT\n"
+        "4. Торговля\n"
+        "5. Аналитика"
+    )
 
-
-
-
+# Поддержка
 @dp.message(F.text == "🛠 Поддержка")
 async def handle_support(message: Message):
     await message.answer("По всем вопросам обращайтесь: @support_username")
 
+# Профиль
 @dp.message(F.text == "👤 Профиль")
 async def handle_profile(message: Message):
     await message.answer(f"Ваш ID: {message.from_user.id}\nВаше имя: {hbold(message.from_user.full_name)}")
 
-# Обработка кнопки оплаты
+# Оплата
 @dp.message(F.text == "💰 Оплата")
 async def handle_payment(message: Message):
-    prices = [LabeledPrice(label="Подписка на ALGO HUB", amount=50000)]  # 500.00 RUB
-    await bot.send_invoice(
-        chat_id=message.chat.id,
-        title="Подписка на ALGO HUB",
-        description="Доступ ко всем закрытым материалам",
-        payload="subscription_payload",
-        provider_token=config.PAYMENT_PROVIDER_TOKEN,
-        currency="RUB",
-        prices=prices,
-        start_parameter="test-invoice"
+    await message.answer(
+        f"💸 Доступные способы оплаты:\n\n"
+        f"📌 USDT (TRC20): `{config.USDT_WALLET}`\n"
+        f"🏦 Банк: {config.BANK_NAME}\n"
+        f"💳 Карта: `{config.BANK_CARD}`\n"
+        f"👤 Получатель: {config.BANK_HOLDER}\n\n"
+        f"После оплаты пришлите скриншот чека в поддержку.",
+        parse_mode="Markdown"
     )
-
-@dp.pre_checkout_query()
-async def process_pre_checkout_query(pre_checkout_q: PreCheckoutQuery):
-    await bot.answer_pre_checkout_query(pre_checkout_q.id, ok=True)
-
-@dp.message(F.content_type == types.ContentType.SUCCESSFUL_PAYMENT)
-async def process_successful_payment(message: Message):
-    await message.answer("✅ Оплата прошла успешно! Добро пожаловать в закрытый раздел.")
 
 # Запуск бота
 async def main():
