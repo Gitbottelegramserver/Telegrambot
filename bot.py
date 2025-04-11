@@ -1,3 +1,4 @@
+from dialogs import router as dialogs_router
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.types import Message, LabeledPrice, PreCheckoutQuery
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
@@ -58,6 +59,7 @@ async def handle_payment(message: Message):
 # Запуск бота
 async def main():
     logging.basicConfig(level=logging.INFO)
+dp.include_router(dialogs_router)
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
